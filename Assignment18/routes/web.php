@@ -29,4 +29,12 @@ Route::controller(ActionController::class)->group(function (){
 
     Route::get('/softData', 'softData');
 
+    Route::get('/allPost', 'allPost');
+
+    Route::get('/categories/{id}/posts', 'specificCatPost');
+
+    Route::get('/categories/{id}/latestpost',  'latestPost');
+
+    Route::get('/categories',  'CategoriesLatestPosts');
+
 });
