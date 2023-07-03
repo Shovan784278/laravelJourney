@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Pagination\CursorPaginator;
 use Illuminate\Database\Query\JoinClause;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -36,7 +36,8 @@ class DemoController extends Controller
    }
 
    function Clause(){
-      $products = DB::table('products')->select('title','price','stock','discount','image')->get();
+      $products = DB::table('products')->select('title','price','stock','discount','image')
+      ->paginateC(5);
       return view('clause', ['products' => $products]);
    }
 
@@ -145,5 +146,19 @@ class DemoController extends Controller
 
          return $data;
    }
+
+
+   //-------------------------------Here is Pagination Part starts -------------------------------
+
+   function Pagination(){
+
+      $products = DB::table('products')->select('id','title','price','stock','discount','image')
+      ->orderBy('id')
+      ->cursorPaginate(5);
+      //return view('product', ['products' => $products, 'showText' => false]);
+      return view('product', ['products' => $products]);
+
+   }
+
 
 }

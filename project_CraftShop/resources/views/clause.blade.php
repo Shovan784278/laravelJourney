@@ -16,7 +16,7 @@
                           <th>Price</th>
                           <th>Stock</th>
                           <th>Discount</th>
-                          <th>Image</th>
+                          
                        </tr>
                     </thead>
                     <tbody>
@@ -26,7 +26,7 @@
                           <td>{{ $product->price }}</td>
                           <td>{{ $product->stock }}</td>
                           <td>{{ $product->discount }}</td>
-                          <td>{{ $product->image }}</td>
+                          
                        </tr>
                        @endforeach
                     </tbody>

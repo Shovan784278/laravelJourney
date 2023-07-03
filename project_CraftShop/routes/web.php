@@ -43,5 +43,7 @@ Route::controller(DemoController::class)->group(function () {
 
     //Route::get('/insertData', 'InsertData');
 
+    Route::get('/pagination', 'Pagination');
+
     
 });
